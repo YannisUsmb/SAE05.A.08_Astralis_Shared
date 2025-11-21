@@ -4,6 +4,12 @@ namespace Astralis.Shared.DTOs
 {
     public class ProductCreateDto
     {
+        [Required(ErrorMessage = "The product category ID is required.")]
+        public int ProductCategoryId { get; set; }
+
+        [Required(ErrorMessage = "The user ID is required.")]
+        public int UserId { get; set; }
+
         [Required(ErrorMessage = "The label is required.")]
         [StringLength(100, ErrorMessage = "The label cannot be longer than 100 characters.")]
         public string Label { get; set; } = null!;
@@ -14,11 +20,5 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The price is required.")]
         [Range(0.01, 9999.99, ErrorMessage = "Price must be positive.")]
         public decimal Price { get; set; }
-
-        [Required(ErrorMessage = "The product category ID is required.")]
-        public int ProductCategoryId { get; set; }
-
-        [Required(ErrorMessage = "The user ID is required.")]
-        public int UserId { get; set; }
     }
 }
