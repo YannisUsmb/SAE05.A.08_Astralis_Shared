@@ -1,4 +1,6 @@
-﻿namespace Astralis.Shared.DTOs
+﻿using Astralis.Shared.Enums;
+
+namespace Astralis.Shared.DTOs
 {
     public class UserDetailDto
     {
@@ -10,7 +12,7 @@
         public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;
         public DateOnly InscriptionDate { get; set; }
-        public char? Gender { get; set; }
+        public GenderType? Gender { get; set; }
 
         public int UserRoleId { get; set; }
     }
