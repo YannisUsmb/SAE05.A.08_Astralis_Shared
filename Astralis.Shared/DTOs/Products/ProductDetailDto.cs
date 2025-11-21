@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace Astralis.Shared.DTOs
+﻿namespace Astralis.Shared.DTOs
 {
     public class ProductDetailDto
     {
