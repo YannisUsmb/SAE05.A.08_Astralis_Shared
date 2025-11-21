@@ -18,6 +18,5 @@ namespace Astralis.Shared.DTOs
 
         // Role Info.
         public int RoleId { get; set; }
-        public string RoleLabel { get; set; } = null!;
     }
 }
