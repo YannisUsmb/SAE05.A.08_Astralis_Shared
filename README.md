@@ -12,11 +12,13 @@
 
 ### Si submodule introuvable.
 
+```Affichage``` > ```Terminal```  
 Dans la racine du projet (solution .sln):  
 ```git submodule update --init --recursive```  
-Puis clique droit > ```Recharger le projet```.
+Clique droit (sur le submodule) > ```Recharger le projet```.
 
 ### Mettre à jour le submodule.
 
+```Affichage``` > ```Terminal```  
 Dans la racine du projet (solution .sln):  
 ```git submodule update --remote --merge```
