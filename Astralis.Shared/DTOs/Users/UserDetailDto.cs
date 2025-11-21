@@ -12,7 +12,7 @@ namespace Astralis.Shared.DTOs
         public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;
         public DateOnly InscriptionDate { get; set; }
-        public GenderType? Gender { get; set; }
+        public GenderType Gender { get; set; }
         public bool IsPremium { get; set; }
         public bool MultiFactorAuthentification { get; set; }
 
