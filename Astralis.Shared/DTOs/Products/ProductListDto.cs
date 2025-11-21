@@ -7,7 +7,7 @@
         public decimal Price { get; set; }
 
         // Category Info.
-        public int ProductCategoryId { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryLabel { get; set; } = null!;
     }
 }
