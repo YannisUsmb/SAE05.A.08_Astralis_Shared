@@ -30,20 +30,10 @@ namespace Astralis.Shared.DTOs.Users
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
 
-        [Required(ErrorMessage = "The inscription date is required.")]
-        public DateOnly InscriptionDate { get; set; }
-
         [Required(ErrorMessage = "The gender is required.")]
         public GenderType Gender { get; set; }
 
-        [Required(ErrorMessage = "The premium status is required.")]
-        public bool IsPremium { get; set; }
-
         [Required(ErrorMessage = "The multi-factor authentication status is required.")]
         public bool MultiFactorAuthentification { get; set; }
-
-        // Role Info.
-        [Required(ErrorMessage = "The role ID for the user is required.")]
-        public int RoleId { get; set; }
     }
 }
