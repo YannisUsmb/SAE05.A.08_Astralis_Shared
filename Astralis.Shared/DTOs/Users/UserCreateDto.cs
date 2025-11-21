@@ -28,7 +28,14 @@ namespace Astralis.Shared.DTOs.Users
 
         [Required(ErrorMessage = "The password is required.")]
         [DataType(DataType.Password)]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "The password must be at least 8 characters long.")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).+$", ErrorMessage = "The password must contain at least one uppercase letter, one number, and one special character.")]
         public string Password { get; set; } = null!;
+
+        [Required(ErrorMessage = "Please confirm the password.")]
+        [DataType(DataType.Password)]
+        [Compare(nameof(Password), ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; } = null!;
 
         [Required(ErrorMessage = "The gender is required.")]
         public GenderType Gender { get; set; }
