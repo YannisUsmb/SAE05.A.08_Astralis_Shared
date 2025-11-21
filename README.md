@@ -9,3 +9,8 @@
 4. Clique droit sur le projet (API ou Blazor).
 5. Ajouter une référence de projet.
 6. Cochez la case à côté de ```Astralis.Shared```.
+
+### Si projet introuvable.
+
+Dans la racine du projet (solution .sln):  
+```git submodule update --init --recursive```
