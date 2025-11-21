@@ -10,7 +10,15 @@
 5. Ajouter une référence de projet.
 6. Cochez la case à côté de ```Astralis.Shared```.
 
-### Si projet introuvable.
+### Si submodule introuvable.
 
+```Affichage``` > ```Terminal```  
 Dans la racine du projet (solution .sln):  
-```git submodule update --init --recursive```
+```git submodule update --init --recursive```  
+Clique droit (sur le submodule) > ```Recharger le projet```.
+
+### Mettre à jour le submodule.
+
+```Affichage``` > ```Terminal```  
+Dans la racine du projet (solution .sln):  
+```git submodule update --remote --merge```
