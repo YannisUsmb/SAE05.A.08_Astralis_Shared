@@ -13,7 +13,11 @@ namespace Astralis.Shared.DTOs
         public string Password { get; set; } = null!;
         public DateOnly InscriptionDate { get; set; }
         public GenderType? Gender { get; set; }
+        public bool IsPremium { get; set; }
+        public bool MultiFactorAuthentification { get; set; }
 
-        public int UserRoleId { get; set; }
+        // Role Info.
+        public int RoleId { get; set; }
+        public string RoleLabel { get; set; } = null!;
     }
 }
