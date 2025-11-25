@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Astralis.Shared.DTOs.Comments
+namespace Astralis.Shared.DTOs
 {
     public class CommentCreateDto
     {
