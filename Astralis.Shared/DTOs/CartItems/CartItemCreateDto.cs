@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Astralis.Shared.DTOs.CartItems
+namespace Astralis.Shared.DTOs
 {
     public class CartItemCreateDto
     {
