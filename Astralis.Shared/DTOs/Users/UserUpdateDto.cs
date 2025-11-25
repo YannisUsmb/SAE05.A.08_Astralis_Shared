@@ -22,6 +22,10 @@ namespace Astralis.Shared.DTOs
         [StringLength(50, ErrorMessage = "The username cannot be longer than 50 characters.")]
         public string Username { get; set; } = null!;
 
+        [Required(ErrorMessage = "The user avatar URL is required.")]
+        [Url(ErrorMessage = "Invalid URL format.")]
+        public string UserAvatarUrl { get; set; } = null!;
+
         [StringLength(20, ErrorMessage = "The phone number cannot be longer than 20 characters.")]
         [Phone(ErrorMessage = "Invalid phone number format.")]
         public string? Phone { get; set; }

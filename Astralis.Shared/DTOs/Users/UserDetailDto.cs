@@ -10,6 +10,7 @@ namespace Astralis.Shared.DTOs
         public string Email { get; set; } = null!;
         public string? Phone { get; set; }
         public string Username { get; set; } = null!;
+        public string UserAvatarUrl { get; set; } = null!;
         public string Password { get; set; } = null!;
         public DateOnly InscriptionDate { get; set; }
         public GenderType Gender { get; set; }
