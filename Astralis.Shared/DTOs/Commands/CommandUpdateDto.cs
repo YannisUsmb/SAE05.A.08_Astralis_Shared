@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Astralis.Shared.DTOs.Commands
+namespace Astralis.Shared.DTOs
 {
     public class CommandUpdateDto
     {
