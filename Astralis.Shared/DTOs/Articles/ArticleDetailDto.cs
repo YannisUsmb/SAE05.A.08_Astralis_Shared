@@ -1,4 +1,4 @@
-﻿namespace Astralis.Shared.DTOs.Articles
+﻿namespace Astralis.Shared.DTOs
 {
     public class ArticleDetailDto
     {
