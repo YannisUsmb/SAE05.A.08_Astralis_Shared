@@ -1,4 +1,4 @@
-﻿namespace Astralis.Shared.DTOs.Comments
+﻿namespace Astralis.Shared.DTOs
 {
     public class CommentDto
     {
