@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Astralis.Shared.DTOs.Users
+namespace Astralis.Shared.DTOs
 {
     public class ChangePasswordDto
     {
