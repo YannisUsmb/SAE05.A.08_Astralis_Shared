@@ -1,4 +1,4 @@
-﻿namespace Astralis.Shared.DTOs.Asteroid
+﻿namespace Astralis.Shared.DTOs
 {
     public class AsteroidDto
     {
