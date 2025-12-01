@@ -11,7 +11,7 @@
 
         // Author Details.
         public int UserId { get; set; }
-        public string UserName { get; set; } = null!;
+        public string Username { get; set; } = null!;
 
         // Status Details.
         public int DiscoveryStatusId { get; set; }
