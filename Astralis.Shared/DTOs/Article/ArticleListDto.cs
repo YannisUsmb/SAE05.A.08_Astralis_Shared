@@ -11,8 +11,8 @@
 
         // Author Info.
         public int UserId { get; set; }
-        public string AuthorName { get; set; } = null!;
-        public string AuthorAvatarPath { get; set; } = null!;
+        public string AuthorUsername { get; set; } = null!;
+        public string AuthorAvatarUrl { get; set; } = null!;
 
         // Computed properties.
         public int LikesCount { get; set; }
