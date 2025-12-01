@@ -7,5 +7,9 @@
         public string PostCode { get; set; } = null!;
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
+
+        // Country Properties.
+        public int CountryId { get; set; }
+        public string CountryName { get; set; } = null!;
     }
 }
