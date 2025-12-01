@@ -5,6 +5,9 @@ namespace Astralis.Shared.DTOs
 {
     public class UserUpdateDto
     {
+        [Required(ErrorMessage = "The user ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The lastname is required.")]
         [StringLength(100, ErrorMessage = "The lastname cannot be longer than 100 characters.")]
         public string LastName { get; set; } = null!;
