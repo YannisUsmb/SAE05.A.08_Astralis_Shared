@@ -9,8 +9,8 @@
 
         // Author Info.
         public int UserId { get; set; }
-        public string AuthorName { get; set; } = null!;
-        public string AuthorAvatarPath { get; set; } = null!;
+        public string AuthorUsername { get; set; } = null!;
+        public string AuthorAvatarUrl { get; set; } = null!;
 
         // Categories Info.
         public List<int> CategoryIds { get; set; } = new List<int>();

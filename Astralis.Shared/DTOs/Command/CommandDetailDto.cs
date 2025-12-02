@@ -1,13 +1,10 @@
 ﻿namespace Astralis.Shared.DTOs
 {
-    public class CommandDto
+    public class CommandDetailDto
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public decimal Total { get; set; }
-
-        // URL of the PDF invoice.
-        public string PdfName { get; set; } = null!;
 
         // Command status details.
         public int CommandStatusId { get; set; }
