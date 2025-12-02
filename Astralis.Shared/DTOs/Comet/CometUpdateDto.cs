@@ -4,9 +4,6 @@ namespace Astralis.Shared.DTOs
 {
     public class CometUpdateDto : IValidatableObject
     {
-        [Required(ErrorMessage = "The comet ID is required.")]
-        public int Id { get; set; }
-
         [Range(0, 10, ErrorMessage = "Orbital eccentricity must be between 0 and 10.")]
         public decimal? OrbitalEccentricity { get; set; }
 

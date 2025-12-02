@@ -4,9 +4,6 @@ namespace Astralis.Shared.DTOs
 {
     public class StarUpdateDto
     {
-        [Required(ErrorMessage = "The star ID is required.")]
-        public int Id { get; set; }
-
         public int? SpectralClassId { get; set; }
 
         [StringLength(10, ErrorMessage = "The designation cannot be longer than 10 characters.")]
