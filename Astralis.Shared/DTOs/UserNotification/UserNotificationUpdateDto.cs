@@ -2,7 +2,7 @@
 
 namespace Astralis.Shared.DTOs
 {
-    public class UserNotificationCreateDto
+    public class UserNotificationUpdateDto
     {
         [Required(ErrorMessage = "The user ID is required.")]
         public int UserId { get; set; }
@@ -12,8 +12,5 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "The read status is required.")]
         public bool IsRead { get; set; }
-
-        [Required(ErrorMessage = "The receiving date is required.")]
-        public DateTime ReceivedAt { get; set; }
     }
 }
