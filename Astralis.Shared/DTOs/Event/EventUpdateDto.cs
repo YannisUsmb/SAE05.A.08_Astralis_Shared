@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class EventUpdateDto : IValidatableObject
     {
+        [Required(ErrorMessage = "The event ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The event type ID is required.")]
         public int EventTypeId { get; set; }
 

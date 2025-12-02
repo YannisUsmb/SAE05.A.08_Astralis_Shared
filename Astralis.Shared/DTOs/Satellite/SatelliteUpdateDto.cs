@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class SatelliteUpdateDto
     {
+        [Required(ErrorMessage = "The satellite ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The planet ID is required.")]
         public int PlanetId { get; set; }
 

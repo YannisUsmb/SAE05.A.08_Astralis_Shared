@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class AddressUpdateDto
     {
+        [Required(ErrorMessage = "The address ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The city ID is required.")]
         public int CityId { get; set; }
 

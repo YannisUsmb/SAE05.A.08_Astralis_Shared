@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class ProductUpdateDto
     {
+        [Required(ErrorMessage = "The product ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The label is required.")]
         [StringLength(100, ErrorMessage = "The label cannot be longer than 100 characters.")]
         public string Label { get; set; } = null!;

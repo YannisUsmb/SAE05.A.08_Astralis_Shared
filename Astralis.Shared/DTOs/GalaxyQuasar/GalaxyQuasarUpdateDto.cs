@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class GalaxyQuasarUpdateDto
     {
+        [Required(ErrorMessage = "The galaxy/quasar ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The galaxy/quasar class ID is required.")]
         public int GalaxyQuasarClassId { get; set; }
 

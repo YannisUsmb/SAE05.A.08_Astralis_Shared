@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class AsteroidUpdateDto : IValidatableObject
     {
+        [Required(ErrorMessage = "The asteroid ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The orbital class ID is required.")]
         public int OrbitalClassId { get; set; }
 

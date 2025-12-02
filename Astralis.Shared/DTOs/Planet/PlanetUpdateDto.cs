@@ -4,6 +4,9 @@ namespace Astralis.Shared.DTOs
 {
     public class PlanetUpdateDto : IValidatableObject
     {
+        [Required(ErrorMessage = "The planet ID is required.")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "The planet type ID is required.")]
         public int PlanetTypeId { get; set; }
 
