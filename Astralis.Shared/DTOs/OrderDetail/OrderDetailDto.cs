@@ -3,6 +3,7 @@
     public class OrderDetailDto
     {
         // Properties representing order detail information.
+        public int CommandId { get; set; }
         public int ProductId { get; set; }
         public string ProductLabel { get; set; } = null!;
         public decimal UnitPrice { get; set; }
