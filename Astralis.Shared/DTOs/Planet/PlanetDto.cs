@@ -16,23 +16,23 @@
         public int DetectionMethodId { get; set; }
         public string DetectionMethodName { get; set; } = null!;
 
-        // Physical & Orbital Characteristics.
-        public string? Distance { get; set; }
+        // Scientific Properties (Mixed types)
+        public decimal? Distance { get; set; }
         public int? DiscoveryYear { get; set; }
-        public string? Mass { get; set; }
-        public string? Radius { get; set; }
-        public string? Temperature { get; set; }
+        public decimal? Mass { get; set; }
+        public decimal? Radius { get; set; }
 
-        public decimal? OrbitalPeriod { get; set; }
+        public string? Temperature { get; set; }
+        public string? OrbitalPeriod { get; set; }
+
         public decimal? Eccentricity { get; set; }
         public decimal? StellarMagnitude { get; set; }
 
-        // Host Star Info.
         public string? HostStarTemperature { get; set; }
         public string? HostStarMass { get; set; }
         public string? Remark { get; set; }
 
         // Statistics.
-        public int SatelliteCount { get; set; } // Computed Satellites.Count()
+        public int SatelliteCount { get; set; }
     }
 }

@@ -10,22 +10,17 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The detection method ID is required.")]
         public int DetectionMethodId { get; set; }
 
-        [StringLength(10, ErrorMessage = "The distance cannot be longer than 10 characters.")]
-        public string? Distance { get; set; }
+        // Decimal fields
+        [Range(0, double.MaxValue, ErrorMessage = "Distance must be positive.")]
+        public decimal? Distance { get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "Mass must be positive.")]
+        public decimal? Mass { get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "Radius must be positive.")]
+        public decimal? Radius { get; set; }
 
         public int? DiscoveryYear { get; set; }
-
-        [StringLength(20, ErrorMessage = "The mass cannot be longer than 20 characters.")]
-        public string? Mass { get; set; }
-
-        [StringLength(10, ErrorMessage = "The radius cannot be longer than 10 characters.")]
-        public string? Radius { get; set; }
-
-        [StringLength(15, ErrorMessage = "The temperature cannot be longer than 15 characters.")]
-        public string? Temperature { get; set; }
-
-        [Range(0, double.MaxValue, ErrorMessage = "Orbital period must be positive.")]
-        public decimal? OrbitalPeriod { get; set; }
 
         [Range(0, 1, ErrorMessage = "Eccentricity must be between 0 and 1.")]
         public decimal? Eccentricity { get; set; }
@@ -33,10 +28,17 @@ namespace Astralis.Shared.DTOs
         [Range(-30, 30, ErrorMessage = "Stellar magnitude seems unrealistic.")]
         public decimal? StellarMagnitude { get; set; }
 
-        [StringLength(15, ErrorMessage = "The host star temperature cannot be longer than 15 characters.")]
+        // String fields
+        [StringLength(30, ErrorMessage = "The temperature cannot be longer than 30 characters.")]
+        public string? Temperature { get; set; }
+
+        [StringLength(40, ErrorMessage = "The orbital period cannot be longer than 40 characters.")]
+        public string? OrbitalPeriod { get; set; }
+
+        [StringLength(30, ErrorMessage = "The host star temperature cannot be longer than 30 characters.")]
         public string? HostStarTemperature { get; set; }
 
-        [StringLength(15, ErrorMessage = "The host star mass cannot be longer than 15 characters.")]
+        [StringLength(30, ErrorMessage = "The host star mass cannot be longer than 30 characters.")]
         public string? HostStarMass { get; set; }
 
         [StringLength(250, ErrorMessage = "The remark cannot be longer than 250 characters.")]
@@ -44,7 +46,6 @@ namespace Astralis.Shared.DTOs
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            // Check if DiscoveryYear is not in the future
             if (DiscoveryYear.HasValue && DiscoveryYear.Value > DateTime.Now.Year)
             {
                 yield return new ValidationResult("Discovery year cannot be in the future.", new[] { nameof(DiscoveryYear) });
