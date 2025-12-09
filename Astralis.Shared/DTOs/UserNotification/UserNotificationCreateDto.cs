@@ -15,5 +15,19 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "The receiving date is required.")]
         public DateTime ReceivedAt { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is UserNotificationCreateDto dto &&
+                   UserId == dto.UserId &&
+                   NotificationId == dto.NotificationId &&
+                   IsRead == dto.IsRead &&
+                   ReceivedAt == dto.ReceivedAt;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(UserId, NotificationId, IsRead, ReceivedAt);
+        }
     }
 }

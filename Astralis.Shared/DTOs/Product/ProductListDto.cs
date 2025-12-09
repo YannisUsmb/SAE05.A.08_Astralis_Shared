@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class ProductListDto
     {
@@ -9,5 +10,20 @@
         // Category Info.
         public int CategoryId { get; set; }
         public string CategoryLabel { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ProductListDto dto &&
+                   Id == dto.Id &&
+                   Label == dto.Label &&
+                   Price == dto.Price &&
+                   CategoryId == dto.CategoryId &&
+                   CategoryLabel == dto.CategoryLabel;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Label, Price, CategoryId, CategoryLabel);
+        }
     }
 }

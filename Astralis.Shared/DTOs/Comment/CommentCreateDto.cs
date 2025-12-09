@@ -16,6 +16,19 @@ namespace Astralis.Shared.DTOs
         [StringLength(300, ErrorMessage = "The text cannot be longer than 300 characters.")]
         public string Text { get; set; } = null!;
 
+        public override bool Equals(object? obj)
+        {
+            return obj is CommentCreateDto dto &&
+                   ArticleId == dto.ArticleId &&
+                   RepliesToId == dto.RepliesToId &&
+                   Text == dto.Text;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ArticleId, RepliesToId, Text);
+        }
+
         // DateCreated will be set by the server.
 
         // IsVisible is true by default.

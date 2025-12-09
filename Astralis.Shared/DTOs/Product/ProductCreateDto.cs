@@ -19,6 +19,20 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The product category ID is required.")]
         public int ProductCategoryId { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is ProductCreateDto dto &&
+                   Label == dto.Label &&
+                   Description == dto.Description &&
+                   Price == dto.Price &&
+                   ProductCategoryId == dto.ProductCategoryId;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Label, Description, Price, ProductCategoryId);
+        }
+
         // No UserId here; it's set from the authenticated user context (JWT Token).
     }
 }

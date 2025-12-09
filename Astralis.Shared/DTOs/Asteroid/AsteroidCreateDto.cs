@@ -32,6 +32,47 @@ namespace Astralis.Shared.DTOs
         [Range(0, 180, ErrorMessage = "Inclination must be between 0 and 180 degrees.")]
         public decimal? Inclination { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is AsteroidCreateDto dto &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   OrbitalClassId == dto.OrbitalClassId &&
+                   Reference == dto.Reference &&
+                   AbsoluteMagnitude == dto.AbsoluteMagnitude &&
+                   DiameterMinKm == dto.DiameterMinKm &&
+                   DiameterMaxKm == dto.DiameterMaxKm &&
+                   IsPotentiallyHazardous == dto.IsPotentiallyHazardous &&
+                   OrbitId == dto.OrbitId &&
+                   OrbitDeterminationDate == dto.OrbitDeterminationDate &&
+                   FirstObservationDate == dto.FirstObservationDate &&
+                   LastObservationDate == dto.LastObservationDate &&
+                   SemiMajorAxis == dto.SemiMajorAxis &&
+                   Inclination == dto.Inclination;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(CelestialBodyTypeId);
+            hash.Add(Name);
+            hash.Add(Alias);
+            hash.Add(OrbitalClassId);
+            hash.Add(Reference);
+            hash.Add(AbsoluteMagnitude);
+            hash.Add(DiameterMinKm);
+            hash.Add(DiameterMaxKm);
+            hash.Add(IsPotentiallyHazardous);
+            hash.Add(OrbitId);
+            hash.Add(OrbitDeterminationDate);
+            hash.Add(FirstObservationDate);
+            hash.Add(LastObservationDate);
+            hash.Add(SemiMajorAxis);
+            hash.Add(Inclination);
+            return hash.ToHashCode();
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // Check that DiameterMinKm is not greater than DiameterMaxKm.

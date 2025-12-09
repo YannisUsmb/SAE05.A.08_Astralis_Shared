@@ -16,5 +16,34 @@
         public int UserId { get; set; }
         public string Username { get; set; } = null!;
         public string UserAvatarUrl { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CommentDto dto &&
+                   Id == dto.Id &&
+                   ArticleId == dto.ArticleId &&
+                   RepliesToId == dto.RepliesToId &&
+                   Text == dto.Text &&
+                   Date == dto.Date &&
+                   IsVisible == dto.IsVisible &&
+                   UserId == dto.UserId &&
+                   Username == dto.Username &&
+                   UserAvatarUrl == dto.UserAvatarUrl;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(ArticleId);
+            hash.Add(RepliesToId);
+            hash.Add(Text);
+            hash.Add(Date);
+            hash.Add(IsVisible);
+            hash.Add(UserId);
+            hash.Add(Username);
+            hash.Add(UserAvatarUrl);
+            return hash.ToHashCode();
+        }
     }
 }

@@ -12,5 +12,18 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "The read status is required.")]
         public bool IsRead { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is UserNotificationUpdateDto dto &&
+                   UserId == dto.UserId &&
+                   NotificationId == dto.NotificationId &&
+                   IsRead == dto.IsRead;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(UserId, NotificationId, IsRead);
+        }
     }
 }

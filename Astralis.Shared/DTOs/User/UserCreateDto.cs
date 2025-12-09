@@ -46,5 +46,36 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "The multi-factor authentication status is required.")]
         public bool MultiFactorAuthentification { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is UserCreateDto dto &&
+                   LastName == dto.LastName &&
+                   FirstName == dto.FirstName &&
+                   Email == dto.Email &&
+                   Phone == dto.Phone &&
+                   Username == dto.Username &&
+                   UserAvatarUrl == dto.UserAvatarUrl &&
+                   Password == dto.Password &&
+                   ConfirmPassword == dto.ConfirmPassword &&
+                   Gender == dto.Gender &&
+                   MultiFactorAuthentification == dto.MultiFactorAuthentification;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(LastName);
+            hash.Add(FirstName);
+            hash.Add(Email);
+            hash.Add(Phone);
+            hash.Add(Username);
+            hash.Add(UserAvatarUrl);
+            hash.Add(Password);
+            hash.Add(ConfirmPassword);
+            hash.Add(Gender);
+            hash.Add(MultiFactorAuthentification);
+            return hash.ToHashCode();
+        }
     }
 }

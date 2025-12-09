@@ -8,5 +8,16 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "The command status ID is required.")]
         public int CommandStatusId { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CommandUpdateDto dto &&
+                   CommandStatusId == dto.CommandStatusId;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CommandStatusId);
+        }
     }
 }

@@ -44,6 +44,51 @@ namespace Astralis.Shared.DTOs
         [StringLength(250, ErrorMessage = "The remark cannot be longer than 250 characters.")]
         public string? Remark { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is PlanetCreateDto dto &&
+                   base.Equals(obj) &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   PlanetTypeId == dto.PlanetTypeId &&
+                   DetectionMethodId == dto.DetectionMethodId &&
+                   Distance == dto.Distance &&
+                   Mass == dto.Mass &&
+                   Radius == dto.Radius &&
+                   DiscoveryYear == dto.DiscoveryYear &&
+                   Eccentricity == dto.Eccentricity &&
+                   StellarMagnitude == dto.StellarMagnitude &&
+                   Temperature == dto.Temperature &&
+                   OrbitalPeriod == dto.OrbitalPeriod &&
+                   HostStarTemperature == dto.HostStarTemperature &&
+                   HostStarMass == dto.HostStarMass &&
+                   Remark == dto.Remark;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(CelestialBodyTypeId);
+            hash.Add(Name);
+            hash.Add(Alias);
+            hash.Add(PlanetTypeId);
+            hash.Add(DetectionMethodId);
+            hash.Add(Distance);
+            hash.Add(Mass);
+            hash.Add(Radius);
+            hash.Add(DiscoveryYear);
+            hash.Add(Eccentricity);
+            hash.Add(StellarMagnitude);
+            hash.Add(Temperature);
+            hash.Add(OrbitalPeriod);
+            hash.Add(HostStarTemperature);
+            hash.Add(HostStarMass);
+            hash.Add(Remark);
+            return hash.ToHashCode();
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (DiscoveryYear.HasValue && DiscoveryYear.Value > DateTime.Now.Year)

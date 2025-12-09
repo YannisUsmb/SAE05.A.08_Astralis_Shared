@@ -30,6 +30,37 @@ namespace Astralis.Shared.DTOs
         [Range(0, 180, ErrorMessage = "Inclination must be between 0 and 180 degrees.")]
         public decimal? Inclination { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is AsteroidUpdateDto dto &&
+                   OrbitalClassId == dto.OrbitalClassId &&
+                   Reference == dto.Reference &&
+                   AbsoluteMagnitude == dto.AbsoluteMagnitude &&
+                   DiameterMinKm == dto.DiameterMinKm &&
+                   DiameterMaxKm == dto.DiameterMaxKm &&
+                   IsPotentiallyHazardous == dto.IsPotentiallyHazardous &&
+                   OrbitDeterminationDate == dto.OrbitDeterminationDate &&
+                   LastObservationDate == dto.LastObservationDate &&
+                   SemiMajorAxis == dto.SemiMajorAxis &&
+                   Inclination == dto.Inclination;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(OrbitalClassId);
+            hash.Add(Reference);
+            hash.Add(AbsoluteMagnitude);
+            hash.Add(DiameterMinKm);
+            hash.Add(DiameterMaxKm);
+            hash.Add(IsPotentiallyHazardous);
+            hash.Add(OrbitDeterminationDate);
+            hash.Add(LastObservationDate);
+            hash.Add(SemiMajorAxis);
+            hash.Add(Inclination);
+            return hash.ToHashCode();
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // Check that DiameterMinKm is not greater than DiameterMaxKm.

@@ -24,5 +24,38 @@ namespace Astralis.Shared.DTOs
 
         [Range(0, int.MaxValue, ErrorMessage = "Modified Julian Date must be positive.")]
         public int? ModifiedJulianDateObservation { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is GalaxyQuasarCreateDto dto &&
+                   base.Equals(obj) &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   GalaxyQuasarClassId == dto.GalaxyQuasarClassId &&
+                   Reference == dto.Reference &&
+                   RightAscension == dto.RightAscension &&
+                   Declination == dto.Declination &&
+                   Redshift == dto.Redshift &&
+                   RMagnitude == dto.RMagnitude &&
+                   ModifiedJulianDateObservation == dto.ModifiedJulianDateObservation;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(CelestialBodyTypeId);
+            hash.Add(Name);
+            hash.Add(Alias);
+            hash.Add(GalaxyQuasarClassId);
+            hash.Add(Reference);
+            hash.Add(RightAscension);
+            hash.Add(Declination);
+            hash.Add(Redshift);
+            hash.Add(RMagnitude);
+            hash.Add(ModifiedJulianDateObservation);
+            return hash.ToHashCode();
+        }
     }
 }

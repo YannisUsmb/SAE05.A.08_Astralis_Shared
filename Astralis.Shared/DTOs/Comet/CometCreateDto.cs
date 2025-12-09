@@ -28,6 +28,41 @@ namespace Astralis.Shared.DTOs
         [StringLength(250, ErrorMessage = "The reference cannot be longer than 250 characters.")]
         public string? Reference { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is CometCreateDto dto &&
+                   base.Equals(obj) &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   OrbitalEccentricity == dto.OrbitalEccentricity &&
+                   OrbitalInclinationDegrees == dto.OrbitalInclinationDegrees &&
+                   AscendingNodeLongitudeDegrees == dto.AscendingNodeLongitudeDegrees &&
+                   PerihelionDistanceAU == dto.PerihelionDistanceAU &&
+                   AphelionDistanceAU == dto.AphelionDistanceAU &&
+                   OrbitalPeriodYears == dto.OrbitalPeriodYears &&
+                   MinimumOrbitIntersectionDistanceAU == dto.MinimumOrbitIntersectionDistanceAU &&
+                   Reference == dto.Reference;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(CelestialBodyTypeId);
+            hash.Add(Name);
+            hash.Add(Alias);
+            hash.Add(OrbitalEccentricity);
+            hash.Add(OrbitalInclinationDegrees);
+            hash.Add(AscendingNodeLongitudeDegrees);
+            hash.Add(PerihelionDistanceAU);
+            hash.Add(AphelionDistanceAU);
+            hash.Add(OrbitalPeriodYears);
+            hash.Add(MinimumOrbitIntersectionDistanceAU);
+            hash.Add(Reference);
+            return hash.ToHashCode();
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // Valide that PerihelionDistanceAU is not greater than AphelionDistanceAU.

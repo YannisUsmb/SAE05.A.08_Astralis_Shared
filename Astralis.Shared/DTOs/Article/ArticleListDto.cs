@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class ArticleListDto
     {
@@ -17,5 +18,34 @@
         // Computed properties.
         public int LikesCount { get; set; }
         public int CommentsCount { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ArticleListDto dto &&
+                   Id == dto.Id &&
+                   Title == dto.Title &&
+                   IsPremium == dto.IsPremium &&
+                   Preview == dto.Preview &&
+                   UserId == dto.UserId &&
+                   AuthorUsername == dto.AuthorUsername &&
+                   AuthorAvatarUrl == dto.AuthorAvatarUrl &&
+                   LikesCount == dto.LikesCount &&
+                   CommentsCount == dto.CommentsCount;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(Title);
+            hash.Add(IsPremium);
+            hash.Add(Preview);
+            hash.Add(UserId);
+            hash.Add(AuthorUsername);
+            hash.Add(AuthorAvatarUrl);
+            hash.Add(LikesCount);
+            hash.Add(CommentsCount);
+            return hash.ToHashCode();
+        }
     }
 }

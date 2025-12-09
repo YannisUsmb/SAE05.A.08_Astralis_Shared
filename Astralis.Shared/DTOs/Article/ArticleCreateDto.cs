@@ -15,5 +15,19 @@ namespace Astralis.Shared.DTOs
         public bool IsPremium { get; set; }
 
         public List<int> CategoryIds { get; set; } = new List<int>();
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ArticleCreateDto dto &&
+                   Title == dto.Title &&
+                   Content == dto.Content &&
+                   IsPremium == dto.IsPremium &&
+                   EqualityComparer<List<int>>.Default.Equals(CategoryIds, dto.CategoryIds);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Title, Content, IsPremium, CategoryIds);
+        }
     }
 }

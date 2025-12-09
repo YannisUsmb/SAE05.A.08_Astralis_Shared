@@ -20,5 +20,20 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "The longitude is required.")]
         public decimal Longitude { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CityCreateDto dto &&
+                   CountryId == dto.CountryId &&
+                   Name == dto.Name &&
+                   PostCode == dto.PostCode &&
+                   Latitude == dto.Latitude &&
+                   Longitude == dto.Longitude;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CountryId, Name, PostCode, Latitude, Longitude);
+        }
     }
 }

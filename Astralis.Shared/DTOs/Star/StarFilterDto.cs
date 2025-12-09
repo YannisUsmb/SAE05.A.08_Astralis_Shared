@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class StarFilterDto
     {
@@ -20,5 +21,42 @@
 
         public decimal? MinTemperature { get; set; }
         public decimal? MaxTemperature { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is StarFilterDto dto &&
+                   Name == dto.Name &&
+                   EqualityComparer<List<int>?>.Default.Equals(SpectralClassIds, dto.SpectralClassIds) &&
+                   Constellation == dto.Constellation &&
+                   Designation == dto.Designation &&
+                   BayerDesignation == dto.BayerDesignation &&
+                   MinDistance == dto.MinDistance &&
+                   MaxDistance == dto.MaxDistance &&
+                   MinLuminosity == dto.MinLuminosity &&
+                   MaxLuminosity == dto.MaxLuminosity &&
+                   MinRadius == dto.MinRadius &&
+                   MaxRadius == dto.MaxRadius &&
+                   MinTemperature == dto.MinTemperature &&
+                   MaxTemperature == dto.MaxTemperature;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Name);
+            hash.Add(SpectralClassIds);
+            hash.Add(Constellation);
+            hash.Add(Designation);
+            hash.Add(BayerDesignation);
+            hash.Add(MinDistance);
+            hash.Add(MaxDistance);
+            hash.Add(MinLuminosity);
+            hash.Add(MaxLuminosity);
+            hash.Add(MinRadius);
+            hash.Add(MaxRadius);
+            hash.Add(MinTemperature);
+            hash.Add(MaxTemperature);
+            return hash.ToHashCode();
+        }
     }
 }

@@ -35,5 +35,23 @@ namespace Astralis.Shared.DTOs
 
         [Required]
         public bool MultiFactorAuthentification { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is UserUpdateDto dto &&
+                   LastName == dto.LastName &&
+                   FirstName == dto.FirstName &&
+                   Email == dto.Email &&
+                   Username == dto.Username &&
+                   UserAvatarUrl == dto.UserAvatarUrl &&
+                   Phone == dto.Phone &&
+                   Gender == dto.Gender &&
+                   MultiFactorAuthentification == dto.MultiFactorAuthentification;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(LastName, FirstName, Email, Username, UserAvatarUrl, Phone, Gender, MultiFactorAuthentification);
+        }
     }
 }

@@ -10,5 +10,17 @@ namespace Astralis.Shared.DTOs
 
         [Required]
         public GalaxyQuasarCreateDto Details { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is DiscoveryGalaxyQuasarSubmissionDto dto &&
+                   Title == dto.Title &&
+                   EqualityComparer<GalaxyQuasarCreateDto>.Default.Equals(Details, dto.Details);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Title, Details);
+        }
     }
 }

@@ -13,5 +13,18 @@ namespace Astralis.Shared.DTOs
 
         [StringLength(100, ErrorMessage = "The alias cannot be longer than 100 characters.")]
         public string? Alias { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CelestialBodyCreateDto dto &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CelestialBodyTypeId, Name, Alias);
+        }
     }
 }

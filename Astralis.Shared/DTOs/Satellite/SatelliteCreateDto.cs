@@ -15,5 +15,23 @@ namespace Astralis.Shared.DTOs
 
         [Range(0, double.MaxValue, ErrorMessage = "Density must be positive.")]
         public decimal? Density { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is SatelliteCreateDto dto &&
+                   base.Equals(obj) &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   PlanetId == dto.PlanetId &&
+                   Gravity == dto.Gravity &&
+                   Radius == dto.Radius &&
+                   Density == dto.Density;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), CelestialBodyTypeId, Name, Alias, PlanetId, Gravity, Radius, Density);
+        }
     }
 }
