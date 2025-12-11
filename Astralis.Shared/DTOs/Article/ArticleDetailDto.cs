@@ -26,9 +26,7 @@ namespace Astralis.Shared.DTOs
                    IsPremium == dto.IsPremium &&
                    UserId == dto.UserId &&
                    AuthorUsername == dto.AuthorUsername &&
-                   AuthorAvatarUrl == dto.AuthorAvatarUrl &&
-                   EqualityComparer<List<int>>.Default.Equals(CategoryIds, dto.CategoryIds) &&
-                   EqualityComparer<List<string>>.Default.Equals(CategoryNames, dto.CategoryNames);
+                   AuthorAvatarUrl == dto.AuthorAvatarUrl;
         }
 
         public override int GetHashCode()
