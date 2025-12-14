@@ -10,5 +10,17 @@ namespace Astralis.Shared.DTOs
 
         [Required]
         public CometCreateDto Details { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is DiscoveryCometSubmissionDto dto &&
+                   Title == dto.Title &&
+                   EqualityComparer<CometCreateDto>.Default.Equals(Details, dto.Details);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Title, Details);
+        }
     }
 }

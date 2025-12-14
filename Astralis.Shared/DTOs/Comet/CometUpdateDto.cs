@@ -28,6 +28,24 @@ namespace Astralis.Shared.DTOs
         [StringLength(250, ErrorMessage = "The reference cannot be longer than 250 characters.")]
         public string? Reference { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is CometUpdateDto dto &&
+                   OrbitalEccentricity == dto.OrbitalEccentricity &&
+                   OrbitalInclinationDegrees == dto.OrbitalInclinationDegrees &&
+                   AscendingNodeLongitudeDegrees == dto.AscendingNodeLongitudeDegrees &&
+                   PerihelionDistanceAU == dto.PerihelionDistanceAU &&
+                   AphelionDistanceAU == dto.AphelionDistanceAU &&
+                   OrbitalPeriodYears == dto.OrbitalPeriodYears &&
+                   MinimumOrbitIntersectionDistanceAU == dto.MinimumOrbitIntersectionDistanceAU &&
+                   Reference == dto.Reference;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(OrbitalEccentricity, OrbitalInclinationDegrees, AscendingNodeLongitudeDegrees, PerihelionDistanceAU, AphelionDistanceAU, OrbitalPeriodYears, MinimumOrbitIntersectionDistanceAU, Reference);
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // Valide that PerihelionDistanceAU is not greater than AphelionDistanceAU.

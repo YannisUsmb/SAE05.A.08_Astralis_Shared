@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class CometFilterDto
     {
@@ -21,5 +22,42 @@
 
         public decimal? MinMOID { get; set; }
         public decimal? MaxMOID { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CometFilterDto dto &&
+                   Reference == dto.Reference &&
+                   MinEccentricity == dto.MinEccentricity &&
+                   MaxEccentricity == dto.MaxEccentricity &&
+                   MinInclination == dto.MinInclination &&
+                   MaxInclination == dto.MaxInclination &&
+                   MinPerihelionAU == dto.MinPerihelionAU &&
+                   MaxPerihelionAU == dto.MaxPerihelionAU &&
+                   MinAphelionAU == dto.MinAphelionAU &&
+                   MaxAphelionAU == dto.MaxAphelionAU &&
+                   MinOrbitalPeriod == dto.MinOrbitalPeriod &&
+                   MaxOrbitalPeriod == dto.MaxOrbitalPeriod &&
+                   MinMOID == dto.MinMOID &&
+                   MaxMOID == dto.MaxMOID;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Reference);
+            hash.Add(MinEccentricity);
+            hash.Add(MaxEccentricity);
+            hash.Add(MinInclination);
+            hash.Add(MaxInclination);
+            hash.Add(MinPerihelionAU);
+            hash.Add(MaxPerihelionAU);
+            hash.Add(MinAphelionAU);
+            hash.Add(MaxAphelionAU);
+            hash.Add(MinOrbitalPeriod);
+            hash.Add(MaxOrbitalPeriod);
+            hash.Add(MinMOID);
+            hash.Add(MaxMOID);
+            return hash.ToHashCode();
+        }
     }
 }

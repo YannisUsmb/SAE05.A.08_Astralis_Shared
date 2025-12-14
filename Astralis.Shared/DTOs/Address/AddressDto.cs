@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class AddressDto
     {
@@ -14,5 +15,23 @@
         // Country Info.
         public int CountryId { get; set; }
         public string CountryName { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is AddressDto dto &&
+                   Id == dto.Id &&
+                   StreetNumber == dto.StreetNumber &&
+                   StreetAddress == dto.StreetAddress &&
+                   CityId == dto.CityId &&
+                   CityName == dto.CityName &&
+                   PostCode == dto.PostCode &&
+                   CountryId == dto.CountryId &&
+                   CountryName == dto.CountryName;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, StreetNumber, StreetAddress, CityId, CityName, PostCode, CountryId, CountryName);
+        }
     }
 }

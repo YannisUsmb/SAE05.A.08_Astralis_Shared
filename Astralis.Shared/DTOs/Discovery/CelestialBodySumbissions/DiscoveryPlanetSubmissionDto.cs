@@ -10,5 +10,17 @@ namespace Astralis.Shared.DTOs
 
         [Required]
         public PlanetCreateDto Details { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is DiscoveryPlanetSubmissionDto dto &&
+                   Title == dto.Title &&
+                   EqualityComparer<PlanetCreateDto>.Default.Equals(Details, dto.Details);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Title, Details);
+        }
     }
 }

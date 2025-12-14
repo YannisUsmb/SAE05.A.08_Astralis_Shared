@@ -28,6 +28,23 @@ namespace Astralis.Shared.DTOs
         [Url(ErrorMessage = "The link must be a valid URL.")]
         public string? Link { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is EventCreateDto dto &&
+                   EventTypeId == dto.EventTypeId &&
+                   Title == dto.Title &&
+                   Description == dto.Description &&
+                   StartDate == dto.StartDate &&
+                   EndDate == dto.EndDate &&
+                   Location == dto.Location &&
+                   Link == dto.Link;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(EventTypeId, Title, Description, StartDate, EndDate, Location, Link);
+        }
+
         // Custom validation to ensure EndDate is not before StartDate.
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

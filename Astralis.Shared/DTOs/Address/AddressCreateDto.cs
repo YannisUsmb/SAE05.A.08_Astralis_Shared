@@ -14,5 +14,18 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The street address is required.")]
         [StringLength(200, ErrorMessage = "The street address cannot be longer than 200 characters.")]
         public string StreetAddress { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is AddressCreateDto dto &&
+                   CityId == dto.CityId &&
+                   StreetNumber == dto.StreetNumber &&
+                   StreetAddress == dto.StreetAddress;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CityId, StreetNumber, StreetAddress);
+        }
     }
 }

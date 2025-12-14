@@ -13,5 +13,18 @@ namespace Astralis.Shared.DTOs
 
         [StringLength(300, ErrorMessage = "The description cannot be longer than 300 characters.")]
         public string? Description { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is NotificationCreateDto dto &&
+                   NotificationTypeId == dto.NotificationTypeId &&
+                   Label == dto.Label &&
+                   Description == dto.Description;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(NotificationTypeId, Label, Description);
+        }
     }
 }

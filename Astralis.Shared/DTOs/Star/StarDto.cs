@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class StarDto
     {
@@ -23,5 +24,44 @@
         public decimal? Luminosity { get; set; }
         public decimal? Radius { get; set; }
         public decimal? Temperature { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is StarDto dto &&
+                   Id == dto.Id &&
+                   CelestialBodyId == dto.CelestialBodyId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   SpectralClassId == dto.SpectralClassId &&
+                   SpectralClassName == dto.SpectralClassName &&
+                   Designation == dto.Designation &&
+                   Constellation == dto.Constellation &&
+                   BayerDesignation == dto.BayerDesignation &&
+                   EqualityComparer<DateOnly?>.Default.Equals(ApprovalDate, dto.ApprovalDate) &&
+                   Distance == dto.Distance &&
+                   Luminosity == dto.Luminosity &&
+                   Radius == dto.Radius &&
+                   Temperature == dto.Temperature;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(CelestialBodyId);
+            hash.Add(Name);
+            hash.Add(Alias);
+            hash.Add(SpectralClassId);
+            hash.Add(SpectralClassName);
+            hash.Add(Designation);
+            hash.Add(Constellation);
+            hash.Add(BayerDesignation);
+            hash.Add(ApprovalDate);
+            hash.Add(Distance);
+            hash.Add(Luminosity);
+            hash.Add(Radius);
+            hash.Add(Temperature);
+            return hash.ToHashCode();
+        }
     }
 }

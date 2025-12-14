@@ -18,5 +18,19 @@ namespace Astralis.Shared.DTOs
         // Category Info.
         [Required(ErrorMessage = "The product category ID is required.")]
         public int ProductCategoryId { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ProductUpdateDto dto &&
+                   Label == dto.Label &&
+                   Description == dto.Description &&
+                   Price == dto.Price &&
+                   ProductCategoryId == dto.ProductCategoryId;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Label, Description, Price, ProductCategoryId);
+        }
     }
 }

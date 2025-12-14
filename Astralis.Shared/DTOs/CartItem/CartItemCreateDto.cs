@@ -12,5 +12,17 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The quantity is required.")]
         [Range(1, 999, ErrorMessage = "Quantity must be at least 1.")]
         public int Quantity { get; set; } = 1;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CartItemCreateDto dto &&
+                   ProductId == dto.ProductId &&
+                   Quantity == dto.Quantity;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ProductId, Quantity);
+        }
     }
 }

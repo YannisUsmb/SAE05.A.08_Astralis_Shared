@@ -28,5 +28,42 @@ namespace Astralis.Shared.DTOs
 
         [Range(0, double.MaxValue, ErrorMessage = "Temperature must be positive.")]
         public decimal? Temperature { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is StarCreateDto dto &&
+                   base.Equals(obj) &&
+                   CelestialBodyTypeId == dto.CelestialBodyTypeId &&
+                   Name == dto.Name &&
+                   Alias == dto.Alias &&
+                   SpectralClassId == dto.SpectralClassId &&
+                   Designation == dto.Designation &&
+                   EqualityComparer<DateOnly?>.Default.Equals(ApprovalDate, dto.ApprovalDate) &&
+                   Constellation == dto.Constellation &&
+                   BayerDesignation == dto.BayerDesignation &&
+                   Distance == dto.Distance &&
+                   Luminosity == dto.Luminosity &&
+                   Radius == dto.Radius &&
+                   Temperature == dto.Temperature;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(CelestialBodyTypeId);
+            hash.Add(Name);
+            hash.Add(Alias);
+            hash.Add(SpectralClassId);
+            hash.Add(Designation);
+            hash.Add(ApprovalDate);
+            hash.Add(Constellation);
+            hash.Add(BayerDesignation);
+            hash.Add(Distance);
+            hash.Add(Luminosity);
+            hash.Add(Radius);
+            hash.Add(Temperature);
+            return hash.ToHashCode();
+        }
     }
 }

@@ -18,5 +18,18 @@ namespace Astralis.Shared.DTOs
         [DataType(DataType.Password)]
         [Compare(nameof(NewPassword), ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmNewPassword { get; set; } = null!;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ChangePasswordDto dto &&
+                   CurrentPassword == dto.CurrentPassword &&
+                   NewPassword == dto.NewPassword &&
+                   ConfirmNewPassword == dto.ConfirmNewPassword;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CurrentPassword, NewPassword, ConfirmNewPassword);
+        }
     }
 }

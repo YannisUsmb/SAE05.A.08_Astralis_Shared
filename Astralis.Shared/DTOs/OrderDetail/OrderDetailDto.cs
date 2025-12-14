@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class OrderDetailDto
     {
@@ -13,5 +14,21 @@
 
         // Computed property for total line price.
         public decimal TotalLinePrice => Quantity * UnitPrice;
+
+        public override bool Equals(object? obj)
+        {
+            return obj is OrderDetailDto dto &&
+                   CommandId == dto.CommandId &&
+                   ProductId == dto.ProductId &&
+                   ProductLabel == dto.ProductLabel &&
+                   UnitPrice == dto.UnitPrice &&
+                   Quantity == dto.Quantity &&
+                   TotalLinePrice == dto.TotalLinePrice;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CommandId, ProductId, ProductLabel, UnitPrice, Quantity, TotalLinePrice);
+        }
     }
 }

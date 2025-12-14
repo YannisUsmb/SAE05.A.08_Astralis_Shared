@@ -22,5 +22,40 @@
 
         public int? AdminId { get; set; }
         public string? AdminName { get; set; } // The one who handled the report, if any.
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ReportDto dto &&
+                   Id == dto.Id &&
+                   Description == dto.Description &&
+                   Date == dto.Date &&
+                   CommentId == dto.CommentId &&
+                   ReportMotiveId == dto.ReportMotiveId &&
+                   ReportMotiveLabel == dto.ReportMotiveLabel &&
+                   ReportStatusId == dto.ReportStatusId &&
+                   ReportStatusLabel == dto.ReportStatusLabel &&
+                   UserId == dto.UserId &&
+                   UserName == dto.UserName &&
+                   AdminId == dto.AdminId &&
+                   AdminName == dto.AdminName;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(Description);
+            hash.Add(Date);
+            hash.Add(CommentId);
+            hash.Add(ReportMotiveId);
+            hash.Add(ReportMotiveLabel);
+            hash.Add(ReportStatusId);
+            hash.Add(ReportStatusLabel);
+            hash.Add(UserId);
+            hash.Add(UserName);
+            hash.Add(AdminId);
+            hash.Add(AdminName);
+            return hash.ToHashCode();
+        }
     }
 }

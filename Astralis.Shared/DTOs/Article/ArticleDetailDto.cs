@@ -1,4 +1,5 @@
-﻿namespace Astralis.Shared.DTOs
+﻿
+namespace Astralis.Shared.DTOs
 {
     public class ArticleDetailDto
     {
@@ -14,6 +15,33 @@
 
         // Categories Info.
         public List<int> CategoryIds { get; set; } = new List<int>();
-        public List<string> CategoryNames { get; set; } = new List<string>();       
+        public List<string> CategoryNames { get; set; } = new List<string>();
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ArticleDetailDto dto &&
+                   Id == dto.Id &&
+                   Title == dto.Title &&
+                   Content == dto.Content &&
+                   IsPremium == dto.IsPremium &&
+                   UserId == dto.UserId &&
+                   AuthorUsername == dto.AuthorUsername &&
+                   AuthorAvatarUrl == dto.AuthorAvatarUrl;
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(Title);
+            hash.Add(Content);
+            hash.Add(IsPremium);
+            hash.Add(UserId);
+            hash.Add(AuthorUsername);
+            hash.Add(AuthorAvatarUrl);
+            hash.Add(CategoryIds);
+            hash.Add(CategoryNames);
+            return hash.ToHashCode();
+        }
     }
 }
