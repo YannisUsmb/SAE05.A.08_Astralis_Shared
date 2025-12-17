@@ -9,6 +9,7 @@
         public string Username { get; set; } = null!;
         public string Role { get; set; } = null!;
         public string? AvatarPath { get; set; }
+        public bool IsPremium { get; set; }
 
         public override bool Equals(object? obj)
         {

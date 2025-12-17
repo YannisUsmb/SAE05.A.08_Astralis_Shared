@@ -18,6 +18,9 @@ namespace Astralis.Shared.DTOs
         [EmailAddress(ErrorMessage = "Invalid email address format.")]
         public string Email { get; set; } = null!;
 
+        [Required(ErrorMessage = "The country is required.")]
+        public int? CountryId { get; set; }
+
         [StringLength(20, ErrorMessage = "The phone number cannot be longer than 20 caracters.")]
         [Phone(ErrorMessage = "Invalid phone number format.")]
         public string? Phone { get; set; }
