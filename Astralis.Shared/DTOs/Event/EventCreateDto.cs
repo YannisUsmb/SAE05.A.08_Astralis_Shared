@@ -22,6 +22,9 @@ namespace Astralis.Shared.DTOs
 
         public DateTime? EndDate { get; set; }
 
+        [Url(ErrorMessage = "The picture URL must be a valid URL.")]
+        public string? PictureUrl { get; set; }
+
         [StringLength(100, ErrorMessage = "The location cannot be longer than 100 characters.")]
         public string? Location { get; set; }
 
