@@ -28,9 +28,8 @@ namespace Astralis.Shared.DTOs
         [StringLength(50, ErrorMessage = "Le nom d'utilisateur ne peut pas dépasser 50 caractères.")]
         public string Username { get; set; } = null!;
 
-        [Required(ErrorMessage = "L'URL de l'avatar utilisateur est requise.")]
         [Url(ErrorMessage = "Format d'URL invalide.")]
-        public string UserAvatarUrl { get; set; } = null!;
+        public string? UserAvatarUrl { get; set; }
 
         [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
