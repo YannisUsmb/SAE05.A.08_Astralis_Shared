@@ -23,7 +23,7 @@ namespace Astralis.Shared.DTOs
         public string Username { get; set; } = null!;
 
         [Url(ErrorMessage = "Invalid URL format.")]
-        public string? UserAvatarUrl { get; set; }
+        public string? AvatarUrl { get; set; }
 
         [StringLength(20, ErrorMessage = "The phone number cannot be longer than 20 characters.")]
         [Phone(ErrorMessage = "Invalid phone number format.")]
@@ -42,7 +42,7 @@ namespace Astralis.Shared.DTOs
                    FirstName == dto.FirstName &&
                    Email == dto.Email &&
                    Username == dto.Username &&
-                   UserAvatarUrl == dto.UserAvatarUrl &&
+                   AvatarUrl == dto.AvatarUrl &&
                    Phone == dto.Phone &&
                    Gender == dto.Gender &&
                    MultiFactorAuthentification == dto.MultiFactorAuthentification;
@@ -50,7 +50,7 @@ namespace Astralis.Shared.DTOs
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(LastName, FirstName, Email, Username, UserAvatarUrl, Phone, Gender, MultiFactorAuthentification);
+            return HashCode.Combine(LastName, FirstName, Email, Username, AvatarUrl, Phone, Gender, MultiFactorAuthentification);
         }
     }
 }

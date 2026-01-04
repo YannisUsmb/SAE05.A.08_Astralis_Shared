@@ -9,7 +9,7 @@
         // User Info: no need to GET user info separately after authentication.
         public string Username { get; set; } = null!;
         public string Role { get; set; } = null!;
-        public string? AvatarPath { get; set; }
+        public string? AvatarUrl { get; set; }
         public bool IsPremium { get; set; }
 
         public override bool Equals(object? obj)
@@ -19,12 +19,12 @@
                    Expiration == dto.Expiration &&
                    Username == dto.Username &&
                    Role == dto.Role &&
-                   AvatarPath == dto.AvatarPath;
+                   AvatarUrl == dto.AvatarUrl;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Token, Expiration, Username, Role, AvatarPath);
+            return HashCode.Combine(Token, Expiration, Username, Role, AvatarUrl);
         }
     }
 }

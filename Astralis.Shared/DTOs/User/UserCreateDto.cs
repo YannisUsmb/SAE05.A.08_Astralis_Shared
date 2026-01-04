@@ -29,7 +29,7 @@ namespace Astralis.Shared.DTOs
         public string Username { get; set; } = null!;
 
         [Url(ErrorMessage = "Format d'URL invalide.")]
-        public string? UserAvatarUrl { get; set; }
+        public string? AvatarUrl { get; set; }
 
         [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
@@ -56,7 +56,7 @@ namespace Astralis.Shared.DTOs
                    Email == dto.Email &&
                    Phone == dto.Phone &&
                    Username == dto.Username &&
-                   UserAvatarUrl == dto.UserAvatarUrl &&
+                   AvatarUrl == dto.AvatarUrl &&
                    Password == dto.Password &&
                    ConfirmPassword == dto.ConfirmPassword &&
                    Gender == dto.Gender &&
@@ -71,7 +71,7 @@ namespace Astralis.Shared.DTOs
             hash.Add(Email);
             hash.Add(Phone);
             hash.Add(Username);
-            hash.Add(UserAvatarUrl);
+            hash.Add(AvatarUrl);
             hash.Add(Password);
             hash.Add(ConfirmPassword);
             hash.Add(Gender);

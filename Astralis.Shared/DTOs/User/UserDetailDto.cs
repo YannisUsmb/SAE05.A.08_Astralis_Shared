@@ -10,7 +10,7 @@ namespace Astralis.Shared.DTOs
         public string Email { get; set; } = null!;
         public string? Phone { get; set; }
         public string Username { get; set; } = null!;
-        public string UserAvatarUrl { get; set; } = null!;
+        public string AvatarUrl { get; set; } = null!;
         public string Password { get; set; } = null!;
         public DateOnly InscriptionDate { get; set; }
         public GenderType Gender { get; set; }
@@ -29,7 +29,7 @@ namespace Astralis.Shared.DTOs
                    Email == dto.Email &&
                    Phone == dto.Phone &&
                    Username == dto.Username &&
-                   UserAvatarUrl == dto.UserAvatarUrl &&
+                   AvatarUrl == dto.AvatarUrl &&
                    Password == dto.Password &&
                    InscriptionDate.Equals(dto.InscriptionDate) &&
                    Gender == dto.Gender &&
@@ -47,7 +47,7 @@ namespace Astralis.Shared.DTOs
             hash.Add(Email);
             hash.Add(Phone);
             hash.Add(Username);
-            hash.Add(UserAvatarUrl);
+            hash.Add(AvatarUrl);
             hash.Add(Password);
             hash.Add(InscriptionDate);
             hash.Add(Gender);
