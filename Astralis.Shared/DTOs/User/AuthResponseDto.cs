@@ -2,6 +2,7 @@
 {
     public class AuthResponseDto
     {
+        public int Id { get; set; }
         public string Token { get; set; } = null!;
         public DateTime Expiration { get; set; }
 
