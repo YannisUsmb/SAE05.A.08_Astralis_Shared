@@ -5,48 +5,48 @@ namespace Astralis.Shared.DTOs
 {
     public class UserCreateDto
     {
-        [Required(ErrorMessage = "The lastname is required.")]
-        [StringLength(100, ErrorMessage = "The lastname cannot be longer than 100 caracters.")]
+        [Required(ErrorMessage = "Le nom de famille est requis.")]
+        [StringLength(100, ErrorMessage = "Le nom de famille ne peut pas dépasser 100 caractères.")]
         public string LastName { get; set; } = null!;
 
-        [Required(ErrorMessage = "The firstname is required.")]
-        [StringLength(100, ErrorMessage = "The firstname cannot be longer than 100 caracters.")]
+        [Required(ErrorMessage = "Le prénom est requis.")]
+        [StringLength(100, ErrorMessage = "Le prénom ne peut pas dépasser 100 caractères.")]
         public string FirstName { get; set; } = null!;
 
-        [Required(ErrorMessage = "The email is required.")]
-        [StringLength(250, ErrorMessage = "The email cannot be longer than 250 caracters.")]
-        [EmailAddress(ErrorMessage = "Invalid email address format.")]
+        [Required(ErrorMessage = "L'adresse e-mail est requise.")]
+        [StringLength(250, ErrorMessage = "L'adresse e-mail ne peut pas dépasser 250 caractères.")]
+        [EmailAddress(ErrorMessage = "Format d'adresse e-mail invalide.")]
         public string Email { get; set; } = null!;
 
         public int? CountryId { get; set; }
 
-        [StringLength(20, ErrorMessage = "The phone number cannot be longer than 20 caracters.")]
-        [Phone(ErrorMessage = "Invalid phone number format.")]
+        [StringLength(20, ErrorMessage = "Le numéro de téléphone ne peut pas dépasser 20 caractères.")]
+        [Phone(ErrorMessage = "Format de numéro de téléphone invalide.")]
         public string? Phone { get; set; }
 
-        [Required(ErrorMessage = "The username is required.")]
-        [StringLength(50, ErrorMessage = "The username cannot be longer than 50 caracters.")]
+        [Required(ErrorMessage = "Le nom d'utilisateur est requis.")]
+        [StringLength(50, ErrorMessage = "Le nom d'utilisateur ne peut pas dépasser 50 caractères.")]
         public string Username { get; set; } = null!;
 
-        [Required(ErrorMessage = "The user avatar URL is required.")]
-        [Url(ErrorMessage = "Invalid URL format.")]
+        [Required(ErrorMessage = "L'URL de l'avatar utilisateur est requise.")]
+        [Url(ErrorMessage = "Format d'URL invalide.")]
         public string UserAvatarUrl { get; set; } = null!;
 
-        [Required(ErrorMessage = "The password is required.")]
+        [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "The password must be at least 8 characters long.")]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).+$", ErrorMessage = "The password must contain at least one uppercase letter, one number, and one special character.")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Le nouveau mot de passe doit faire entre 8 et 100 caractères")] 
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).+$", ErrorMessage = " Le mot de passe doit contenir au moins une lettre majuscule, un chiffre et un caractère spécial.")]
         public string Password { get; set; } = null!;
 
-        [Required(ErrorMessage = "Please confirm the password.")]
+        [Required(ErrorMessage = "Veuillez confirmer le mot de passe.")]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare(nameof(Password), ErrorMessage = "Le mot de passe et sa confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; } = null!;
 
-        [Required(ErrorMessage = "The gender is required.")]
+        [Required(ErrorMessage = "Le genre est requis.")]
         public GenderType Gender { get; set; }
 
-        [Required(ErrorMessage = "The multi-factor authentication status is required.")]
+        [Required(ErrorMessage = "Le statut de l'authentification multi-facteurs est requis.")]
         public bool MultiFactorAuthentification { get; set; }
 
         public override bool Equals(object? obj)

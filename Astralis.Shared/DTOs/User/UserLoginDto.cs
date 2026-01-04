@@ -4,10 +4,10 @@ namespace Astralis.Shared.DTOs
 {
     public class UserLoginDto
     {
-        [Required(ErrorMessage = "The login identifier is required.")]
+        [Required(ErrorMessage = "L'identifiant de connexion est requis.")]
         public string Identifier { get; set; } = null!;
 
-        [Required(ErrorMessage = "The password is required.")]
+        [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
 
