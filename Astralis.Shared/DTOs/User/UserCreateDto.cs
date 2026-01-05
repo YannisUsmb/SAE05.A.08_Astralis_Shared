@@ -29,9 +29,6 @@ namespace Astralis.Shared.DTOs
         [RegularExpression(@"^[a-zA-Z0-9._-]+$", ErrorMessage = "Le nom d'utilisateur ne peut contenir que des lettres, chiffres, points, tirets et underscores.")]
         public string Username { get; set; } = null!;
 
-        [Url(ErrorMessage = "Format d'URL invalide.")]
-        public string? AvatarUrl { get; set; }
-
         [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
         [StringLength(100, MinimumLength = 8, ErrorMessage = "Le nouveau mot de passe doit faire entre 8 et 100 caractères")]
