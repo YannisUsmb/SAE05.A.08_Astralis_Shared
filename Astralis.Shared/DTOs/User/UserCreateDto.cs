@@ -26,6 +26,7 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "Le nom d'utilisateur est requis.")]
         [StringLength(50, ErrorMessage = "Le nom d'utilisateur ne peut pas dépasser 50 caractères.")]
+        [RegularExpression(@"^[^@]*$", ErrorMessage = "Le nom d'utilisateur ne peut pas contenir le caractère '@'.")]
         public string Username { get; set; } = null!;
 
         [Url(ErrorMessage = "Format d'URL invalide.")]
