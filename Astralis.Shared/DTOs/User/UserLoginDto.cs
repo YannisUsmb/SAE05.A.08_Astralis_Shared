@@ -2,25 +2,39 @@
 
 namespace Astralis.Shared.DTOs
 {
-    public class UserLoginDto
+    public class UserLoginDto : IValidatableObject
     {
-        [Required(ErrorMessage = "L'identifiant de connexion est requis.")]
-        public string Identifier { get; set; } = null!;
+        public string? Identifier { get; set; }
+
+        public int? CountryId { get; set; }
+        public string? Phone { get; set; }
 
         [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
 
-        public override bool Equals(object? obj)
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            return obj is UserLoginDto dto &&
-                   Identifier == dto.Identifier &&
-                   Password == dto.Password;
-        }
+            if (string.IsNullOrWhiteSpace(Identifier) && string.IsNullOrWhiteSpace(Phone))
+            {
+                yield return new ValidationResult(
+                    "Veuillez saisir un identifiant (Email/Pseudo) ou un numéro de téléphone.",
+                    new[] { nameof(Identifier) });
+            }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Identifier, Password);
+            if (!string.IsNullOrWhiteSpace(Phone) && !CountryId.HasValue)
+            {
+                yield return new ValidationResult(
+                    "Veuillez sélectionner un pays pour la connexion par téléphone.",
+                    new[] { nameof(CountryId) });
+            }
+
+            if (CountryId.HasValue && string.IsNullOrWhiteSpace(Phone))
+            {
+                yield return new ValidationResult(
+                    "Veuillez saisir votre numéro de téléphone.",
+                    new[] { nameof(Phone) });
+            }
         }
     }
 }
