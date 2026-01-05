@@ -34,7 +34,7 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "Le nouveau mot de passe doit faire entre 8 et 100 caractères")] 
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Le nouveau mot de passe doit faire entre 8 et 100 caractères")]
         [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).+$", ErrorMessage = " Le mot de passe doit contenir au moins une lettre majuscule, un chiffre et un caractère spécial.")]
         public string Password { get; set; } = null!;
 
@@ -51,50 +51,12 @@ namespace Astralis.Shared.DTOs
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (CountryId.HasValue && string.IsNullOrWhiteSpace(Phone))
-            {
-                yield return new ValidationResult(
-                    "Le numéro de téléphone est requis si un indicatif pays est sélectionné.",
-                    new[] { nameof(Phone) });
-            }
-
             if (!string.IsNullOrWhiteSpace(Phone) && !CountryId.HasValue)
             {
                 yield return new ValidationResult(
                     "L'indicatif pays est requis si un numéro de téléphone est saisi.",
                     new[] { nameof(CountryId) });
             }
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is UserCreateDto dto &&
-                   LastName == dto.LastName &&
-                   FirstName == dto.FirstName &&
-                   Email == dto.Email &&
-                   Phone == dto.Phone &&
-                   Username == dto.Username &&
-                   AvatarUrl == dto.AvatarUrl &&
-                   Password == dto.Password &&
-                   ConfirmPassword == dto.ConfirmPassword &&
-                   Gender == dto.Gender &&
-                   MultiFactorAuthentification == dto.MultiFactorAuthentification;
-        }
-
-        public override int GetHashCode()
-        {
-            HashCode hash = new HashCode();
-            hash.Add(LastName);
-            hash.Add(FirstName);
-            hash.Add(Email);
-            hash.Add(Phone);
-            hash.Add(Username);
-            hash.Add(AvatarUrl);
-            hash.Add(Password);
-            hash.Add(ConfirmPassword);
-            hash.Add(Gender);
-            hash.Add(MultiFactorAuthentification);
-            return hash.ToHashCode();
         }
     }
 }
