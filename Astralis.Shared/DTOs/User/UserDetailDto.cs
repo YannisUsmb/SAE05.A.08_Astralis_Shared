@@ -8,6 +8,7 @@ namespace Astralis.Shared.DTOs
         public string LastName { get; set; } = null!;
         public string FirstName { get; set; } = null!;
         public string Email { get; set; } = null!;
+        public int? CountryId { get; set; }
         public string? Phone { get; set; }
         public string Username { get; set; } = null!;
         public string AvatarUrl { get; set; } = null!;

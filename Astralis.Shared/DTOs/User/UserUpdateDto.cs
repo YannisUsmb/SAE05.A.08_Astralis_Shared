@@ -43,20 +43,11 @@ namespace Astralis.Shared.DTOs
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (CountryId.HasValue && string.IsNullOrWhiteSpace(Phone))
-            {
-                yield return new ValidationResult(
-                    "Le numéro de téléphone est requis lorsqu’un indicatif pays est sélectionné.",
-                    new[] { nameof(Phone) }
-                );
-            }
-
             if (!string.IsNullOrWhiteSpace(Phone) && !CountryId.HasValue)
             {
                 yield return new ValidationResult(
-                    "L’indicatif pays est requis lorsqu’un numéro de téléphone est renseigné.",
-                    new[] { nameof(CountryId) }
-                );
+                    "L'indicatif pays est requis si un numéro de téléphone est saisi.",
+                    new[] { nameof(CountryId) });
             }
         }
 
