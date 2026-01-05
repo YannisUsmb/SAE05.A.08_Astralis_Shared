@@ -49,6 +49,23 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "Le statut de l'authentification multi-facteurs est requis.")]
         public bool MultiFactorAuthentification { get; set; }
 
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (CountryId.HasValue && string.IsNullOrWhiteSpace(Phone))
+            {
+                yield return new ValidationResult(
+                    "Le numéro de téléphone est requis si un indicatif pays est sélectionné.",
+                    new[] { nameof(Phone) });
+            }
+
+            if (!string.IsNullOrWhiteSpace(Phone) && !CountryId.HasValue)
+            {
+                yield return new ValidationResult(
+                    "L'indicatif pays est requis si un numéro de téléphone est saisi.",
+                    new[] { nameof(CountryId) });
+            }
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is UserCreateDto dto &&

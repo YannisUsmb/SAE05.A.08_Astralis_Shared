@@ -26,6 +26,8 @@ namespace Astralis.Shared.DTOs
         [Url(ErrorMessage = "Invalid URL format.")]
         public string? AvatarUrl { get; set; }
 
+        public int? CountryId { get; set; }
+
         [StringLength(20, ErrorMessage = "The phone number cannot be longer than 20 characters.")]
         [Phone(ErrorMessage = "Invalid phone number format.")]
         public string? Phone { get; set; }
@@ -35,6 +37,23 @@ namespace Astralis.Shared.DTOs
 
         [Required]
         public bool MultiFactorAuthentification { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (CountryId.HasValue && string.IsNullOrWhiteSpace(Phone))
+            {
+                yield return new ValidationResult(
+                    "Le numéro de téléphone est requis si un indicatif pays est sélectionné.",
+                    new[] { nameof(Phone) });
+            }
+
+            if (!string.IsNullOrWhiteSpace(Phone) && !CountryId.HasValue)
+            {
+                yield return new ValidationResult(
+                    "L'indicatif pays est requis si un numéro de téléphone est saisi.",
+                    new[] { nameof(CountryId) });
+            }
+        }
 
         public override bool Equals(object? obj)
         {
