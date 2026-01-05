@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Astralis.Shared.DTOs
 {
@@ -11,10 +12,15 @@ namespace Astralis.Shared.DTOs
         [StringLength(300, ErrorMessage = "The description cannot be longer than 300 characters.")]
         public string? Description { get; set; }
 
+        [Column("pro_productpictureurl", TypeName = "TEXT")]
+        [Url(ErrorMessage = "The product picture url must be a valid URL.")]
+        public string? ProductPictureUrl { get; set; }
+
         [Required(ErrorMessage = "The price is required.")]
         [Range(0.01, 9999.99, ErrorMessage = "Price must be positive.")]
         public decimal Price { get; set; }
-
+        
+        
         // Category Info.
         [Required(ErrorMessage = "The product category ID is required.")]
         public int ProductCategoryId { get; set; }
