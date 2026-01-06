@@ -7,6 +7,8 @@ namespace Astralis.Shared.DTOs
         public string Name { get; set; } = null!;
         public string IsoCode { get; set; } = null!;
         public string? PhonePrefix { get; set; }
+        public string? PhoneExample { get; set; }
+        public string? PhoneRegex { get; set; }
 
         public override bool Equals(object? obj)
         {
