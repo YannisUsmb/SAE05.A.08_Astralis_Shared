@@ -5,6 +5,8 @@ namespace Astralis.Shared.DTOs
     {
         public int Id { get; set; }
         public string Label { get; set; } = null!;
+        public string? Example { get; set; }
+        public string? RegexPattern { get; set; }
 
         public override bool Equals(object? obj)
         {
