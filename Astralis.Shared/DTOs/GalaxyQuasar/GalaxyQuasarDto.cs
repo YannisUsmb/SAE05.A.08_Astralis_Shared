@@ -13,6 +13,7 @@ namespace Astralis.Shared.DTOs
         // Class Info.
         public int GalaxyQuasarClassId { get; set; }
         public string GalaxyQuasarClassName { get; set; } = null!;
+        public string GalaxyClassDescription { get; set; } = null!;
 
         // Scientific Data.
         public string? Reference { get; set; }

@@ -13,6 +13,7 @@ namespace Astralis.Shared.DTOs
         // Classification Info.
         public int PlanetTypeId { get; set; }
         public string PlanetTypeName { get; set; } = null!;
+        public string PlanetTypeDescription { get; set; } = null!;
 
         public int DetectionMethodId { get; set; }
         public string DetectionMethodName { get; set; } = null!;

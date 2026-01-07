@@ -13,6 +13,7 @@ namespace Astralis.Shared.DTOs
         // Classification Info.
         public int? SpectralClassId { get; set; }
         public string? SpectralClassName { get; set; }
+        public string SpectralClassDescription { get; set; } = null!;
 
         // Scientific Info.
         public string? Designation { get; set; }
