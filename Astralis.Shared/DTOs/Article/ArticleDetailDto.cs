@@ -7,6 +7,7 @@ namespace Astralis.Shared.DTOs
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
         public bool IsPremium { get; set; }
+        public DateTime PublicationDate { get; set; }
 
         // Author Info.
         public int UserId { get; set; }
