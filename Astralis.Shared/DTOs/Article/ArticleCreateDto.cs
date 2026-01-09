@@ -14,6 +14,11 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The premium status is required.")]
         public bool IsPremium { get; set; }
 
+        [StringLength(500, ErrorMessage = "The title cannot be longer than 500 characters.")]
+        public string? Description { get; set; }
+
+        public string? CoverImageUrl { get; set; }
+
         public List<int> CategoryIds { get; set; } = new List<int>();
 
         public override bool Equals(object? obj)
