@@ -9,6 +9,7 @@ namespace Astralis.Shared.DTOs
         public string? Description { get; set; }
         public string? CoverImageUrl { get; set; }
         public DateTime PublicationDate { get; set; }
+        public List<string> CategoryNames { get; set; } = new List<string>();
 
         // Content substring from the Controller.
         public string Preview { get; set; } = null!;
