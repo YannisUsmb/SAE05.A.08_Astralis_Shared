@@ -5,7 +5,7 @@ namespace Astralis.Shared.DTOs
     public class ArticleCreateDto
     {
         [Required(ErrorMessage = "The title is required.")]
-        [StringLength(50, ErrorMessage = "The title cannot be longer than 50 characters.")]
+        [StringLength(100, ErrorMessage = "The title cannot be longer than 100 characters.")]
         public string Title { get; set; } = null!;
 
         [Required(ErrorMessage = "The content is required.")]
