@@ -17,6 +17,8 @@
         public string Username { get; set; } = null!;
         public string UserAvatarUrl { get; set; } = null!;
 
+        public List<CommentDto> Replies { get; set; } = new();
+
         public override bool Equals(object? obj)
         {
             return obj is CommentDto dto &&
