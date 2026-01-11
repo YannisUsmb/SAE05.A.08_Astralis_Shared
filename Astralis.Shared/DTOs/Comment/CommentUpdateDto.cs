@@ -4,8 +4,8 @@ namespace Astralis.Shared.DTOs
 {
     public class CommentUpdateDto
     {
-        [Required(ErrorMessage = "The text is required.")]
-        [StringLength(300, ErrorMessage = "The text cannot be longer than 300 characters.")]
+        [Required(ErrorMessage = "Le texte est requis.")]
+        [StringLength(300, ErrorMessage = "Le texte ne peut pas dépasser 300 caractères.")]
         public string Text { get; set; } = null!;
 
         public override bool Equals(object? obj)
