@@ -18,6 +18,8 @@
         public string UserAvatarUrl { get; set; } = null!;
 
         public List<CommentDto> Replies { get; set; } = new();
+        public string? ParentUsername { get; set; }
+        public string? ParentTextPreview { get; set; }
 
         public override bool Equals(object? obj)
         {
