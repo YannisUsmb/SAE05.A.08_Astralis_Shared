@@ -4,7 +4,7 @@ namespace Astralis.Shared.DTOs
     public class ReportMotiveDto
     {
         public int Id { get; set; }
-        public string Label { get; set; } = null!;
+        public string Label { get; set; } = string.Empty;
         public string? Description { get; set; }
 
         public override bool Equals(object? obj)

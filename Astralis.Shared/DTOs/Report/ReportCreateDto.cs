@@ -7,12 +7,12 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "The comment ID is required.")]
         public int CommentId { get; set; }
 
-        [Required(ErrorMessage = "The report motive ID is required.")]
+        [Required(ErrorMessage = "Veuillez sélectionner un motif.")]
         public int ReportMotiveId { get; set; }
 
         [Required(ErrorMessage = "The description is required.")]
-        [StringLength(150, ErrorMessage = "The description cannot be longer than 150 characters.")]
-        public string Description { get; set; } = null!;
+        [MaxLength(500, ErrorMessage = "La description ne peut pas dépasser 500 caractères.")]
+        public string? Description { get; set; }
 
         public override bool Equals(object? obj)
         {
