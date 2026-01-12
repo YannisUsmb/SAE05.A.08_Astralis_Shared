@@ -3,7 +3,7 @@
     public class ReportDto
     {
         public int Id { get; set; }
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; }
         public DateTime Date { get; set; }
 
         // Signaled comment.
