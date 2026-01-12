@@ -10,7 +10,6 @@ namespace Astralis.Shared.DTOs
         [Required(ErrorMessage = "Veuillez sélectionner un motif.")]
         public int ReportMotiveId { get; set; }
 
-        [Required(ErrorMessage = "The description is required.")]
         [MaxLength(500, ErrorMessage = "La description ne peut pas dépasser 500 caractères.")]
         public string? Description { get; set; }
 
