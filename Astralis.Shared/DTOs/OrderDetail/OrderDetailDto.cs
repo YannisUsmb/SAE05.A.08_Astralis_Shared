@@ -8,7 +8,7 @@ namespace Astralis.Shared.DTOs
         public int ProductId { get; set; }
         public string ProductLabel { get; set; } = null!;
         public decimal UnitPrice { get; set; }
-
+        public string? ProductPictureUrl { get; set; }
         // Quantity of the product ordered.
         public int Quantity { get; set; }
 
