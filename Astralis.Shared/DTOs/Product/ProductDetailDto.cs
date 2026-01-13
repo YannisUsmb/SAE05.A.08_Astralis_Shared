@@ -11,10 +11,9 @@ namespace Astralis.Shared.DTOs
         public string? Description { get; set; }        
         public string? ProductPictureUrl { get; set; }
         public decimal Price { get; set; }
-        // Category Info.
         public int CategoryId { get; set; }
         public string CategoryLabel { get; set; } = null!;
-
+        public string? CategoryDescription { get; set; }
         public override bool Equals(object? obj)
         {
             return obj is ProductDetailDto dto &&

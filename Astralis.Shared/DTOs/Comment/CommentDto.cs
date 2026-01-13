@@ -17,6 +17,11 @@
         public string Username { get; set; } = null!;
         public string UserAvatarUrl { get; set; } = null!;
 
+        public List<CommentDto> Replies { get; set; } = new();
+        public string? ParentUsername { get; set; }
+        public string? ParentTextPreview { get; set; }
+        public bool IsEdited { get; set; }
+
         public override bool Equals(object? obj)
         {
             return obj is CommentDto dto &&

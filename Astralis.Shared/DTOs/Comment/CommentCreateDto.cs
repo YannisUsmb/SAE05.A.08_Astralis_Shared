@@ -6,14 +6,14 @@ namespace Astralis.Shared.DTOs
     {
         // User ID will be taken from the authenticated user context.
 
-        [Required(ErrorMessage = "The article ID is required.")]
+        [Required(ErrorMessage = "L'ID de l'article est requis.")]
         public int ArticleId { get; set; }
 
         // If null, the comment is not a reply to another comment
         public int? RepliesToId { get; set; }
 
-        [Required(ErrorMessage = "The text is required.")]
-        [StringLength(300, ErrorMessage = "The text cannot be longer than 300 characters.")]
+        [Required(ErrorMessage = "Le texte est requis.")]
+        [StringLength(300, ErrorMessage = "Le texte ne peut pas dépasser 300 caractères.")]
         public string Text { get; set; } = null!;
 
         public override bool Equals(object? obj)
