@@ -11,7 +11,6 @@ namespace Astralis.Shared.DTOs
         public string CelestialBodyName { get; set; } = null!;
 
         public string CelestialBodyTypeName { get; set; } = string.Empty;
-        public DateTime DiscoveryDate { get; set; } 
         
         // Author Details.
         public int UserId { get; set; }
