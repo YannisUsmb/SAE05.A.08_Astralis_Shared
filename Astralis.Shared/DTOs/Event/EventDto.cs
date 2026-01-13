@@ -16,6 +16,7 @@
         public string EventTypeLabel { get; set; } = null!; // Ex: "Concert", "Workshop"
 
         public int UserId { get; set; }
+        public bool IsInterested { get; set; }
 
         // Calculated Property EventInterests.Count()
         public int InterestCount { get; set; }
