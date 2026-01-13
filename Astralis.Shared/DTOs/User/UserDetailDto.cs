@@ -17,7 +17,8 @@ namespace Astralis.Shared.DTOs
         public GenderType Gender { get; set; }
         public bool IsPremium { get; set; }
         public bool MultiFactorAuthentification { get; set; }
-
+        public int? DeliveryId { get; set; }
+        public int? InvoicingId { get; set; }
         // Role Info.
         public int RoleId { get; set; }
 
