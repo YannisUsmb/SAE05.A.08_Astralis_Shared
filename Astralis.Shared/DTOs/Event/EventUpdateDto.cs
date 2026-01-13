@@ -13,7 +13,6 @@ namespace Astralis.Shared.DTOs
         [StringLength(50, ErrorMessage = "The title cannot be longer than 50 characters.")]
         public string Title { get; set; } = null!;
 
-        [Required(ErrorMessage = "The description is required.")]
         [StringLength(500, ErrorMessage = "The description cannot be longer than 500 characters.")]
         public string Description { get; set; } = null!;
 
