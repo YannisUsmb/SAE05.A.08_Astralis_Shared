@@ -2,6 +2,7 @@
 {
     public class UserNotificationDto
     {
+        public int Id { get; set; }
         public int UserId { get; set; }
         public int NotificationId { get; set; }
         public bool IsRead { get; set; }
@@ -10,6 +11,7 @@
         public string? Description { get; set; }
         public string? Link { get; set; }
         public string TypeLabel { get; set; } = string.Empty;
+        public string TypeColor { get; set; } = "info";
 
         public override bool Equals(object? obj)
         {
