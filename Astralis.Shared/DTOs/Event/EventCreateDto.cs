@@ -4,31 +4,30 @@ namespace Astralis.Shared.DTOs
 {
     public class EventCreateDto : IValidatableObject
     {
-        [Required(ErrorMessage = "The event type ID is required.")]
+        [Required(ErrorMessage = "L'id du type d'événement est requis.")]
         public int EventTypeId { get; set; }
 
         // User ID will be taken from the authenticated user context.
 
-        [Required(ErrorMessage = "The title is required.")]
-        [StringLength(50, ErrorMessage = "The title cannot be longer than 50 characters.")]
+        [Required(ErrorMessage = "Le titre est requis")]
+        [StringLength(50, ErrorMessage = "Le titre ne peut pas faire plus de 50 caractères.")]
         public string Title { get; set; } = null!;
 
-        [Required(ErrorMessage = "The description is required.")]
-        [StringLength(500, ErrorMessage = "The description cannot be longer than 500 characters.")]
+        [StringLength(500, ErrorMessage = "La description ne peut pas faire plus de 500 caractères.")]
         public string Description { get; set; } = null!;
 
-        [Required(ErrorMessage = "The start date is required.")]
+        [Required(ErrorMessage = "La date de début est requise.")]
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
 
-        [Url(ErrorMessage = "The picture URL must be a valid URL.")]
+        [Url(ErrorMessage = "L'url de l'image doit être une url valide.")]
         public string? PictureUrl { get; set; }
 
-        [StringLength(100, ErrorMessage = "The location cannot be longer than 100 characters.")]
+        [StringLength(100, ErrorMessage = "Le lieu ne peut pas faire plus de 100 caractères.")]
         public string? Location { get; set; }
 
-        [Url(ErrorMessage = "The link must be a valid URL.")]
+        [Url(ErrorMessage = "Le lien externe doit être une url valide.")]
         public string? Link { get; set; }
 
         public override bool Equals(object? obj)

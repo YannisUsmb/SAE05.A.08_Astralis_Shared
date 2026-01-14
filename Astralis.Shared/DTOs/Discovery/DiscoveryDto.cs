@@ -10,6 +10,8 @@ namespace Astralis.Shared.DTOs
         public int CelestialBodyId { get; set; }
         public string CelestialBodyName { get; set; } = null!;
 
+        public string CelestialBodyTypeName { get; set; } = string.Empty;
+        
         // Author Details.
         public int UserId { get; set; }
         public string Username { get; set; } = null!;

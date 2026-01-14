@@ -40,7 +40,8 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "Le paramètre d’authentification multifacteur est requis.")]
         public bool MultiFactorAuthentification { get; set; }
-
+        public int? DeliveryId { get; set; }
+        public int? InvoicingId { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (!string.IsNullOrWhiteSpace(Phone) && !CountryId.HasValue)
