@@ -10,7 +10,7 @@ namespace Astralis.Shared.DTOs
 
         [Required(ErrorMessage = "Le nouveau mot de passe est requis.")]
         [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "Le nouveau mot de passe doit faire entre 8 et 100 caractères.")]
+        [StringLength(100, MinimumLength = 13, ErrorMessage = "Le nouveau mot de passe doit faire entre 13 et 100 caractères.")]
         [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).+$", ErrorMessage = " Le nouveau mot de passe doit comporter une lettre majuscule, un chiffre et un caractère spécial.")]
         public string NewPassword { get; set; } = null!;
 
