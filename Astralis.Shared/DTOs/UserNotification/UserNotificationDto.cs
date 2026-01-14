@@ -6,6 +6,10 @@
         public int NotificationId { get; set; }
         public bool IsRead { get; set; }
         public DateTime ReceivedAt { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public string? Link { get; set; }
+        public string TypeLabel { get; set; } = string.Empty;
 
         public override bool Equals(object? obj)
         {

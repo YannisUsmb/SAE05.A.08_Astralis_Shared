@@ -11,6 +11,7 @@ namespace Astralis.Shared.DTOs
 
         public string Label { get; set; } = null!;
         public string? Description { get; set; }
+        public string? Link { get; set; }
 
         public override bool Equals(object? obj)
         {

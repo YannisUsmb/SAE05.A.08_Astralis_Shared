@@ -14,6 +14,9 @@ namespace Astralis.Shared.DTOs
         [StringLength(300, ErrorMessage = "The description cannot be longer than 300 characters.")]
         public string? Description { get; set; }
 
+        [Url(ErrorMessage = "The link must be a valid URL.")]
+        public string? Link { get; set; }
+
         public override bool Equals(object? obj)
         {
             return obj is NotificationCreateDto dto &&
