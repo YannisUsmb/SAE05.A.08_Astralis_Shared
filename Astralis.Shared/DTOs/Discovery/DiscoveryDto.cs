@@ -12,6 +12,8 @@ namespace Astralis.Shared.DTOs
 
         public string CelestialBodyTypeName { get; set; } = string.Empty;
         
+        public string? Alias { get; set; }
+        
         // Author Details.
         public int UserId { get; set; }
         public string Username { get; set; } = null!;
@@ -30,6 +32,7 @@ namespace Astralis.Shared.DTOs
                    Title == dto.Title &&
                    CelestialBodyId == dto.CelestialBodyId &&
                    CelestialBodyName == dto.CelestialBodyName &&
+                   Alias == dto.Alias &&
                    UserId == dto.UserId &&
                    Username == dto.Username &&
                    DiscoveryStatusId == dto.DiscoveryStatusId &&
@@ -45,6 +48,7 @@ namespace Astralis.Shared.DTOs
             hash.Add(Title);
             hash.Add(CelestialBodyId);
             hash.Add(CelestialBodyName);
+            hash.Add(Alias);
             hash.Add(UserId);
             hash.Add(Username);
             hash.Add(DiscoveryStatusId);
